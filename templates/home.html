@@ -1,22 +1,15 @@
-{% extends 'base.html' %}
-
+{% extends "base.html" %}
 {% block content %}
-
 {% for post in posts %}
-<!-- <h1>{{ post.title }}</h1>
-<p>By {{ post.author }} on {{ post.date_posted}}</p>
-<p>{{ post.content }}</p> -->
-<main class="container">
-  <article class="post">
-    <h1 class="post-title">{{ post.title }}</h1>
-    <p class="post-date">Published on: {{ post.date_posted }}</p>
-    <div class="post-content">
-      {{ post.content }}
+<article class="media content-section">
+  <div class="media-body">
+    <div class="article-metadata">
+      <a class="mr-2" href="#">{{ post.author }}</a>
+      <small class="text-muted">{{ post.date_posted }}</small>
     </div>
-    <p class="post-author">Author: {{ post.author }}</p>
-  </article>
-</main>
+    <h2><a class="article-title" href="#">{{ post.title }}</a></h2>
+    <p class="article-content">{{ post.content }}</p>
+  </div>
+</article>
 {% endfor %}
-
-
-{% endblock %}
+{% endblock content %}
