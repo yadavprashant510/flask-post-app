@@ -112,7 +112,7 @@ def post(post_id: int):
     return render_template('post.html', title=post.title, post=post)
 
 
-@app.route("/post/<int:post_id>/update")
+@app.route("/post/<int:post_id>/update", methods=["GET", "POST"])
 @login_required
 def update_post(post_id: int):
     post = Post.query.get_or_404(post_id)
@@ -133,7 +133,7 @@ def update_post(post_id: int):
                            form=form, legend='Update Post')
 
 
-@app.route('/user/<string:username>/')
+@app.route('/user/<string:username>')
 def user_posts(username):
     page = request.args.get('page', 1, type=int)
     # query the user
